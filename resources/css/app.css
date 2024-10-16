@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --swiper-theme-color: #ff0000 !important;
+        /*
+        --swiper-preloader-color: var(--swiper-theme-color);
+        --swiper-wrapper-transition-timing-function: initial;
+        */
+    }
+}

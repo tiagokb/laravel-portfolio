@@ -10,11 +10,9 @@ export default function Edit({gravatar}) {
 
     const user = usePage().props.auth.user;
 
-    const {data, setData, patch, errors, processing, recentlySuccessful} =
-        useForm({
-            name: user.name,
-            email: user.email,
-        });
+    const {data, setData, patch, errors, processing, recentlySuccessful} = useForm({
+        name: user.name, email: user.email,
+    });
 
     const submit = (e) => {
         e.preventDefault();
@@ -22,13 +20,10 @@ export default function Edit({gravatar}) {
         patch(route('profile.update'));
     };
 
-    return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Profile
-                </h2>
-            }
+    return (<AuthenticatedLayout
+            header={<h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                Profile
+            </h2>}
         >
             <Head title="Profile"/>
 
@@ -79,7 +74,8 @@ export default function Edit({gravatar}) {
                                     </div>
                                     <div className={'flex flex-col justify-center items-center gap-4'}>
                                         <img src={gravatar} alt="gravatar profile image" className={'rounded-full'}/>
-                                        <a href="https://gravatar.com/profile " target={"_blank"}>Editar Foto de Perfil</a>
+                                        <a href="https://gravatar.com/profile " target={"_blank"}>Editar Foto de
+                                            Perfil</a>
                                     </div>
                                 </div>
 
@@ -103,6 +99,5 @@ export default function Edit({gravatar}) {
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
-    );
+        </AuthenticatedLayout>);
 }

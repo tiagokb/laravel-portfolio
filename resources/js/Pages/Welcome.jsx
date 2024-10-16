@@ -1,9 +1,8 @@
 import {Head, Link} from '@inertiajs/react';
+import Icon from "@/Components/Icon.jsx";
+import Carousel from "@/Components/Carousel.jsx";
 
 export default function Welcome({gravatar, profile, socials, contacts, projects}) {
-
-    console.log(contacts)
-
     return (<>
         <Head title="Welcome"/>
         <div className="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
@@ -12,8 +11,7 @@ export default function Welcome({gravatar, profile, socials, contacts, projects}
                 <div className="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                     <main className="mt-6">
                         <div className="flex flex-col items-center gap-4 md:flex-row md:items-start">
-
-                            <div className={'flex flex-col justify-center items-center gap-4'}>
+                            <div className={'flex flex-col justify-center items-center gap-4 mt-4'}>
                                 <img
                                     src={gravatar}
                                     alt="Profile"
@@ -24,7 +22,7 @@ export default function Welcome({gravatar, profile, socials, contacts, projects}
                                 </span>
                             </div>
 
-                            <p className={'px-4 text-balance'}>
+                            <p className={'px-4 text-balance mt-12'}>
                                 {/* Seu conteúdo de texto aqui */}
                                 {profile.description}
                             </p>
@@ -33,49 +31,21 @@ export default function Welcome({gravatar, profile, socials, contacts, projects}
                         <div className={'mb-24 mt-8 flex flex-row gap-4 justify-center items-center px-4'}>
 
                             {Object.entries(socials).map(([key, social], index) => (
-                                <a href={social.url} target={"_blank"} key={index}>
-                                    <img className={'max-w-12 rounded-full'}
-                                         src="https://avatars.githubusercontent.com/u/39976202?v=4" alt={social.name}/>
-                                </a>
+                                <Icon icon={social.icon} href={social.url} key={index}/>
                             ))}
                         </div>
 
                         {/*TODO: Componentizar card*/}
-                        <div className="flex flex-col gap-4 items-center justify-center">
-                            {projects.map((project, index) => (
-                                <div key={index}>
-
-                                    <div className={'flex flex-row justify-center items-center'}>
-                                        <h1>{project.name}</h1>
-                                    </div>
-                                    <div className={'flex flex-row justify-center items-center'}>
-                                        <a href={project.url} target={'_blank'}>Link de Referencia</a>
-                                    </div>
-                                    <div className={'flex flex-row justify-center items-center'}>
-                                        <img className={'max-w-full max-h-fit'}
-                                             src={project.image_url}
-                                             alt="laravel news"/>
-                                    </div>
-                                    <div className={'flex flex-row justify-center items-center'}>
-                                        <p className={'text-pretty items-center text-center'}>
-                                            {project.description}
-                                        </p>
-                                    </div>
-
-                                </div>
-                            ))}
-                        </div>
+                        <Carousel items={projects}/>
 
                         <div
-                            className={'flex flex-col md:flex md:flex-row justify-center items-center gap-4 px-4 mt-24'}>
+                            className={'flex flex-row justify-center items-center gap-4 px-4 mt-24'}>
                             <span>
                                 Me contate atravéz de:
                             </span>
 
                             {Object.entries(contacts).map(([key, contact], index) => (
-                                <a href={contact.url} target="_blank" rel="noopener noreferrer" key={index}>
-                                    {contact.name}
-                                </a>
+                                <Icon icon={contact.icon} href={contact.url} key={index}/>
                             ))}
                         </div>
 

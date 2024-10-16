@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.jsx';
-import {Head, router} from '@inertiajs/react';
+import {Head, Link, router} from '@inertiajs/react';
 
 export default function Edit({projects}) {
 
@@ -19,16 +19,16 @@ export default function Edit({projects}) {
                         <div className="p-6 text-gray-900 dark:text-gray-100">
 
                             <div className={'flex flex-row justify-end items-center mt-4 mb-8'}>
-                                <a href={route('project.create')}>
+                                <Link href={route('project.create')}>
                                     Adicionar Projeto
-                                </a>
+                                </Link>
                             </div>
                             <div className={'flex flex-col justify-start items-start gap-4 w-full'}>
                                 {projects.map((project, index) => (
                                     <div className={'flex flex-row justify-between items-center w-full'} key={index}>
-                                        <a href={route('project.edit', {id: project.id})} key={index}>
+                                        <Link href={route('project.edit', {id: project.id})} key={index}>
                                             {project.name}
-                                        </a>
+                                        </Link>
                                         <button
                                             onClick={() => router.delete(route('project.destroy', {id: project.id}))}
                                             className="text-red-500"

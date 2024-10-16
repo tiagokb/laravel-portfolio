@@ -1,6 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import {Head, usePage} from '@inertiajs/react';
+import {Head, Link, usePage} from '@inertiajs/react';
 import {useState} from "react";
+import NavLink from "@/Components/NavLink.jsx";
 
 export default function Dashboard() {
 
@@ -27,14 +28,21 @@ export default function Dashboard() {
                             </div>
 
                             <div className={'flex flex-col gap-4 justify-center items-center w-full'}>
-                                <a href={route('profile.edit')}>
+                                <Link href={route('profile.edit')}>
                                     Perfil Pessoal
-                                </a>
-                                <a href={route('portfolio.edit')}>
+                                </Link>
+                                <Link href={route('portfolio.edit')}>
                                     Perfil do Portifolio
-                                </a>
-                                <a href={route('project.index')}>
+                                </Link>
+                                <Link href={route('project.index')}>
                                     Projetos
+                                </Link>
+                                <a
+                                    href={route('welcome')}
+                                    target={'_blank'}
+                                    rel="noopener noreferrer"
+                                >
+                                    <strong>Visualizar Portfolio</strong>
                                 </a>
                             </div>
 
