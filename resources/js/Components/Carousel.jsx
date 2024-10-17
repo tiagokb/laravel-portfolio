@@ -23,35 +23,29 @@ export const Carousel = ({items}) => {
                 modules={[Pagination, Navigation]}
             >
                 {items.map((item, index) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide key={index} className={'py-8 sm:px-12 md:px-24'}>
                         <div
-                            className="flex flex-col gap-4 justify-center items-center w-full max-w-3xl mx-auto p-4 rounded-lg shadow-lg mb-4">
-                            {/* Título do projeto */}
-                            <h1 className="text-3xl font-bold text-center">
-                                {item.name}
-                            </h1>
-
-                            {/* Link para o projeto com explicação */}
-                            <a href={item.url} target="_blank" rel="noopener noreferrer"
-                               className="underline text-lg transition">
-                                Ver mais sobre este projeto
-                            </a>
-
-                            {/* Imagem do projeto */}
-                            <div className="w-full h-64 md:h-80 lg:h-96 overflow-hidden rounded-lg">
+                            className="relative flex flex-col rounded-xl bg-clip-border shadow-md">
+                            <div
+                                className="relative mx-4 -mt-6 max-h-48 sm:max-h-64 md:max-h-96 overflow-hidden rounded-xl bg-primary bg-clip-border shadow-lg">
                                 <img
                                     src={item.image_url}
                                     alt={item.name}
-                                    className="w-full h-full object-cover object-center"
+                                    className="w-full h-full object-contain object-center"
                                 />
                             </div>
-
-                            {/* Descrição do projeto */}
-                            <p className="text-lg text-center mt-4">
-                                {item.description}
-                            </p>
+                            <div className="flex flex-col justify-center gap-4 p-6">
+                                <h1>
+                                    {item.name}
+                                </h1>
+                                <a href={item.url} target="_blank" rel="noopener noreferrer">
+                                    <p>Ver mais sobre este projeto</p>
+                                </a>
+                                <p>
+                                    {item.description}
+                                </p>
+                            </div>
                         </div>
-
                     </SwiperSlide>
                 ))}
             </Swiper>

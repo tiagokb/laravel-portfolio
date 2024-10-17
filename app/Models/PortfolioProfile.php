@@ -9,6 +9,7 @@ class PortfolioProfile extends Model
 {
     protected $fillable = [
         'name',
+        'title',
         'email',
         'telegram',
         'whatsapp',
@@ -50,9 +51,9 @@ class PortfolioProfile extends Model
                 'icon' => 'fa-brands fa-linkedin'
             ],
             'devto' => [
-                'name' => 'Dev.to',
+                'name' => 'Github',
                 'url' => $this->devto,
-                'icon' => 'fa-brands fa-dev'
+                'icon' => 'fa-brands fa-square-github'
             ],
             'medium' => [
                 'name' => 'Medium',

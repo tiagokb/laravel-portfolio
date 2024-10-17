@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import {Head, Link, useForm, usePage} from '@inertiajs/react';
+import {Head, useForm} from '@inertiajs/react';
 import InputLabel from "@/Components/InputLabel.jsx";
 import TextInput from "@/Components/TextInput.jsx";
 import InputError from "@/Components/InputError.jsx";
@@ -10,6 +10,7 @@ export default function Edit({gravatar, portfolio}) {
     const {data, setData, patch, errors, processing, recentlySuccessful} =
         useForm({
             name: portfolio.name,
+            title: portfolio.title,
             email: portfolio.email,
             twitter: portfolio.twitter,
             instagram: portfolio.instagram,
@@ -59,12 +60,26 @@ export default function Edit({gravatar, portfolio}) {
                                                 className="mt-1 block w-full"
                                                 value={data.name}
                                                 onChange={(e) => setData('name', e.target.value)}
-                                                https://github.com/tiagokb
                                                 isFocused
                                                 autoComplete="name"
                                             />
 
                                             <InputError className="mt-2" message={errors.name}/>
+                                        </div>
+
+                                        <div>
+                                            <InputLabel htmlFor="title" value="Title"/>
+
+                                            <TextInput
+                                                id="title"
+                                                className="mt-1 block w-full"
+                                                value={data.title}
+                                                onChange={(e) => setData('title', e.target.value)}
+                                                isFocused
+                                                autoComplete="title"
+                                            />
+
+                                            <InputError className="mt-2" message={errors.title}/>
                                         </div>
 
                                         <div>
@@ -95,7 +110,7 @@ export default function Edit({gravatar, portfolio}) {
                                         Social Midias
                                     </h2>
                                     <div className={'grid grid-cols-3 gap-4 justify-center items-center w-full'}>
-                                        <div>
+                                    <div>
                                             <InputLabel htmlFor="twitter" value="X (Twitter)"/>
 
                                             <TextInput

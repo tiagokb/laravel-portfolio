@@ -10,6 +10,7 @@ class PortfolioProfileUpdateRequest extends FormRequest
     {
         return [
             'name' => ['required'],
+            'title' => ['nullable'],
             'email' => ['required', 'email', 'max:254'],
             'telegram' => ['nullable', 'integer'],
             'whatsapp' => ['nullable', 'integer'],

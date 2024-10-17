@@ -1,7 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import {Head, Link, usePage} from '@inertiajs/react';
-import {useState} from "react";
-import NavLink from "@/Components/NavLink.jsx";
 
 export default function Dashboard() {
 
@@ -37,6 +35,9 @@ export default function Dashboard() {
                                 <Link href={route('project.index')}>
                                     Projetos
                                 </Link>
+                                <Link href={route('theme.edit')}>
+                                    Temas
+                                </Link>
                                 <a
                                     href={route('welcome')}
                                     target={'_blank'}
@@ -45,7 +46,6 @@ export default function Dashboard() {
                                     <strong>Visualizar Portfolio</strong>
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 </div>

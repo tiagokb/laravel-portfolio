@@ -3,11 +3,40 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --swiper-theme-color: #ff0000 !important;
-        /*
-        --swiper-preloader-color: var(--swiper-theme-color);
-        --swiper-wrapper-transition-timing-function: initial;
-        */
+
+    h1, h2, h3, p, span footer {
+        @apply text-center
+    }
+
+    h1 {
+        @apply font-bold text-2xl sm:text-3xl md:text-4xl
+    }
+
+    h2, h3 {
+        @apply font-semibold
+    }
+
+    h2, h3, p {
+        @apply text-sm sm:text-lg md:text-xl
+    }
+
+    p {
+        @apply px-12 text-balance items-center
+    }
+
+    span {
+        @apply text-lg sm:text-xl md:text-2xl
+    }
+
+    footer {
+        @apply py-8
+    }
+
+    a {
+        @apply underline text-lg transition
+    }
+
+    a:hover {
+        @apply text-primary transition duration-300 ease-in-out transform
     }
 }
