@@ -16,6 +16,10 @@ class WelcomeController extends Controller
 
         $profile = PortfolioProfile::orderByDesc('updated_at')->limit(1)->get()->first();
 
+        if ($profile == null) {
+            return Inertia::render('PortfolioNotFound');
+        }
+
         $gravatar = $profile->gravatarImageUrl();
 
         $socials = $profile->socials();
