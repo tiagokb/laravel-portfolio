@@ -61,7 +61,7 @@ To seed the database with a default user, follow these steps:
     \App\Models\User::factory()->create([
         'name' => 'Your Name',
         'email' => 'your-email@example.com',
-        'password' => bcrypt('your-password'), // Make sure to use a secure password
+        'password' => Hash::make('password'), // Make sure to use a secure password
     ]);
     ```
 
@@ -76,12 +76,6 @@ To seed the database with a default user, follow these steps:
 ---
 
 Feel free to customize the user information as needed!
-
-
-## Contributing
-Feel free to open an issue or submit a pull request if you'd like to improve this project.
-
----
 
 ## License
 This project is open-source and available under the [MIT License](LICENSE).
